@@ -22,7 +22,7 @@ export const ResetPasswordForm = () => {
       return;
     }
 
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#\$%\^&\*\(\)_\+\-=\[\]\{\};':"\\|,.<>\/?]).{8,}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
 
     if (!passwordRegex.test(password)) {
       alert("Contraseña débil:\n\n• Debe tener al menos 8 caracteres.\n• Debe incluir al menos una letra mayúscula.\n• Debe contener al menos un carácter especial (!@#$%^&*...).");
