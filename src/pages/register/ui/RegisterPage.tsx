@@ -21,8 +21,12 @@ export const RegisterPage = () => {
       Alert.alert("Campos requeridos", "Completa todos los campos.");
       return;
     }
-    if (password.length < 8) {
-      Alert.alert("Contraseña débil", "Mínimo 8 caracteres.");
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#\$%\^&\*\(\)_\+\-=\[\]\{\};':"\\|,.<>\/?]).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      Alert.alert(
+        "Contraseña débil",
+        "La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula y un carácter especial."
+      );
       return;
     }
     if (password !== confirm) {
@@ -74,10 +78,10 @@ export const RegisterPage = () => {
               onChangeText={setEmail} keyboardType="email-address"
               placeholder="tu@correo.com" />
             <Input label="Contraseña" value={password}
-              onChangeText={setPassword} secureTextEntry
+              onChangeText={setPassword} isPassword
               placeholder="Mínimo 8 caracteres" />
             <Input label="Confirmar contraseña" value={confirm}
-              onChangeText={setConfirm} secureTextEntry
+              onChangeText={setConfirm} isPassword
               placeholder="Repite tu contraseña" />
             <Button onPress={handleRegister}
               isLoading={register.isPending}

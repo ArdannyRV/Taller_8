@@ -58,7 +58,7 @@ export const LoginPage = () => {
               label="Contraseña"
               value={password}
               onChangeText={setPassword}
-              secureTextEntry
+              isPassword
               placeholder="Tu contraseña"
             />
             <TouchableOpacity
