@@ -21,6 +21,14 @@ export const ResetPasswordForm = () => {
       setValError("Las contraseñas no coinciden.");
       return;
     }
+
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#\$%\^&\*\(\)_\+\-=\[\]\{\};':"\\|,.<>\/?]).{8,}$/;
+
+    if (!passwordRegex.test(password)) {
+      setValError("Contraseña débil: Debe tener al menos 8 caracteres, incluir una letra mayúscula y un carácter especial.");
+      return;
+    }
+
     await updatePassword(password);
   };
 
