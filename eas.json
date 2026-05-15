@@ -1,0 +1,29 @@
+{
+  "cli": {
+    "version": ">= 18.13.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL":"https://eestnxtyvtwjuezvzeyp.supabase.com",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY":"sb_publishable_qUf2AqbIR2hCtVH-tneVrQ_IsTw-Ucr2",
+        "EXPO_PUBLIC_WEB_URL":"https://auth-esfot-web-two.vercel.app"
+      }
+    },
+    "production": {
+      "autoIncrement": true
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
