@@ -1,6 +1,6 @@
 import {
   View, Text, StyleSheet, SafeAreaView,
-  TouchableOpacity, Alert
+  TouchableOpacity, Alert, ScrollView
 } from "react-native";
 import { useSession } from "@/features/session/model/useSession";
 import { Button }     from "@/shared/ui/Button";
@@ -26,7 +26,7 @@ export const HomePage = () => {
  
   return (
     <SafeAreaView style={styles.safe}>
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
  
         {/* Header */}
         <View style={styles.header}>
@@ -67,14 +67,14 @@ export const HomePage = () => {
           label="Cerrar sesión"
           variant="ghost"
         />
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
  
 const styles = StyleSheet.create({
   safe:              { flex:1, backgroundColor: theme.colors.bg },
-  container:         { flex:1, padding:24, gap:20 },
+  scrollContainer:   { flexGrow:1, padding:24, gap:20 },
   header:            { backgroundColor: theme.colors.primary, borderRadius:16,
                        padding:24, alignItems:"center", ...theme.shadow.card },
   headerIcon:        { fontSize:48, marginBottom:8 },
